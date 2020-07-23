@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import './App.css'
+
+import Home from "./components/Home"
+import Search from "./components/Search"
+import CaseRanking from "./components/CaseRanking"
+import DeathRanking from "./components/DeathRanking"
+import RecoveredRanking from "./components/RecoveredRanking"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+			<div className="App">
+				<Router>
+					<Switch>
+						<Route path='/' component={Home} exact />
+						<Route path='/ranking/cases' component={CaseRanking} exact />
+						<Route path='/ranking/deaths' component={DeathRanking} exact />
+						<Route path='/ranking/recovered' component={RecoveredRanking} exact />
+						<Route path='/search' component={Search} exact />
+					</Switch>
+				</Router>
+			</div>
+	)
 }
 
-export default App;
+export default App
